@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retiro Creativo | Benissa, Alicante</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React & ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap');
+        
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .font-sans { font-family: 'Jost', sans-serif; }
+        
+        .halo-gradient {
+            background: radial-gradient(circle, rgba(253,251,249,0.8) 0%, rgba(198,180,151,0.2) 60%, transparent 100%);
+        }
+        
+        body { margin: 0; padding: 0; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect } = React;
+
+        function EtherealRetreatPage() {
+            const activities = [
+                {
+                    title: 'Journaling guiado',
+                    text: 'Ejercicios de escritura emocional para ordenar pensamientos, liberar emociones y ganar claridad.',
+                    image: 'FOTOS/Journaling guiado.webp',
+                },
+                {
+                    title: 'Talleres creativos',
+                    text: 'Espacios para crear con las manos desde un lugar libre, intuitivo y sin juicios.',
+                    image: 'FOTOS/talleres creativos2.jpg',
+                },
+                {
+                    title: 'Yoga suave',
+                    text: 'Movimiento consciente y pausado para volver al cuerpo, respirar y bajar el ritmo.',
+                    image: 'FOTOS/Yoga suave.jpg',
+                },
+                {
+                    title: 'Ritual de autocuidado',
+                    text: 'Un momento para pausar, cuidarte y conectar contigo a través de rituales sencillos de presencia.',
+                    image: 'FOTOS/cuidado.jpg',
+                },
+            ];
+
+            return (
+                <div className="min-h-screen bg-[#C6B497] text-[#433429] font-sans overflow-hidden">
+                    {/* HERO */}
+                    <section className="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
+                        <div 
+                            className="absolute inset-0 bg-no-repeat bg-cover bg-center"
+                            style={{
+                                backgroundImage: "url('FOTOS/FOTO PRINCIPAL.png')",
+                                filter: 'brightness(0.7) contrast(1.05)',
+                            }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50" />
+
+                        <div className="relative z-10 max-w-4xl px-6 text-center">
+                            <img src="logo ethereal.png" alt="Logo Ethereal" className="w-48 mx-auto mb-16 invert brightness-200" />
+                            
+                            <h1 className="text-7xl md:text-9xl font-serif leading-[0.8] mb-12 italic drop-shadow-2xl tracking-tight text-white">
+                                Retiro
+                                <br />
+                                <span className="not-italic text-4xl md:text-6xl tracking-[0.3em] uppercase">Creativo</span>
+                            </h1>
+
+                            <div className="max-w-2xl mx-auto mb-16">
+                                <p className="text-xl md:text-2xl font-light leading-relaxed mb-6 text-white drop-shadow-lg">
+                                    3 días · 2 noches de desconexión y conexión contigo misma a través de la creatividad.
+                                </p>
+                                <p className="tracking-[0.4em] uppercase text-xs md:text-sm font-bold text-white/90 drop-shadow-md">
+                                    Benissa · Alicante
+                                </p>
+                            </div>
+
+                            <div className="flex flex-col items-center gap-5">
+                                <a
+                                    href="https://w.app/ethereal"
+                                    target="_blank"
+                                    className="bg-white text-[#433429] px-14 py-6 rounded-full text-xs tracking-[0.4em] uppercase font-bold hover:bg-[#433429] hover:text-white transition-all duration-500 shadow-2xl mb-12"
+                                >
+                                    Reservar mi plaza
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* INTRO */}
+                    <section className="bg-[#FDFBF9] py-32">
+                        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
+                            <div className="order-2 md:order-1">
+                                <p className="uppercase tracking-[0.4em] text-xs mb-6 text-[#8c7a6b] font-semibold">
+                                    Sobre la experiencia
+                                </p>
+
+                                <h2 className="text-5xl md:text-7xl font-serif leading-[1.1] mb-10 italic">
+                                    No es solo un retiro creativo.
+                                </h2>
+
+                                <p className="text-lg md:text-xl leading-relaxed mb-7 text-[#5c5148] font-light">
+                                    ETHEREAL nace para personas que sienten que necesitan parar el ruido de fuera para volver a escucharse por dentro.
+                                </p>
+
+                                <p className="text-lg md:text-xl leading-relaxed mb-7 text-[#5c5148] font-light">
+                                    Creamos este retiro porque creemos que la creatividad puede ser una herramienta de regulación emocional, calma y reconexión personal.
+                                </p>
+
+                                <p className="text-lg md:text-xl leading-relaxed text-[#5c5148] font-light">
+                                    Aquí no vienes a producir ni a demostrar nada. Vienes a bajar el ritmo, compartir, crear y sentirte acompañada.
+                                </p>
+                            </div>
+
+                            <div className="order-1 md:order-2 relative">
+                                <div className="rounded-[3rem] overflow-hidden shadow-2xl h-[600px] relative z-10 border-[12px] border-white">
+                                    <img
+                                        src="FOTOS/Si sientes que....webp"
+                                        alt="Experiencia creativa"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                                <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-[#C6B497]/20 rounded-full blur-3xl -z-0" />
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* ACTIVIDADES */}
+                    <section className="bg-[#C6B497] py-32 px-6">
+                        <div className="max-w-7xl mx-auto text-center">
+                            <p className="uppercase tracking-[0.4em] text-xs mb-6 text-[#FDFBF9] font-semibold">
+                                Actividades core
+                            </p>
+
+                            <h2 className="text-5xl md:text-7xl font-serif mb-24 text-[#FDFBF9] italic">
+                                ¿Qué viviremos?
+                            </h2>
+
+                            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-16">
+                                {activities.map((item, index) => (
+                                    <div key={index} className="flex flex-col md:flex-row items-center gap-10 text-left group">
+                                        <div className="w-full md:w-1/2 aspect-square rounded-[3rem] overflow-hidden shadow-2xl ring-1 ring-white/20">
+                                            <img
+                                                src={item.image}
+                                                alt={item.title}
+                                                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                                            />
+                                        </div>
+                                        <div className="w-full md:w-1/2">
+                                            <h3 className="text-4xl font-serif mb-6 text-[#FDFBF9] italic leading-tight">{item.title}</h3>
+                                            <p className="text-[#FDFBF9]/80 text-xl font-light leading-relaxed">
+                                                {item.text}
+                                            </p>
+                                            <div className="h-px w-20 bg-[#FDFBF9]/30 mt-8 group-hover:w-full transition-all duration-700" />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* LA VILLA - GENERAL */}
+                    <section className="bg-[#FDFBF9] py-32">
+                        <div className="max-w-7xl mx-auto px-6">
+                            <div className="text-center mb-24">
+                                <p className="uppercase tracking-[0.4em] text-xs mb-6 text-[#8c7a6b] font-semibold">
+                                    La villa
+                                </p>
+
+                                <h2 className="text-5xl md:text-7xl font-serif leading-tight mb-8 max-w-4xl mx-auto italic">
+                                    Un refugio mediterráneo pensado para desconectar.
+                                </h2>
+
+                                <p className="text-xl text-[#5c5148] max-w-2xl mx-auto leading-relaxed font-light mb-6">
+                                    Nos alojaremos en una preciosa villa en Benissa, Alicante, rodeada de naturaleza, luz cálida y espacios compartidos diseñados para conectar, descansar y sentirte en calma.
+                                </p>
+                                
+                                <p className="text-sm tracking-widest uppercase text-[#8c7a6b] font-bold">
+                                    Partida de pinos, 66a · Benissa (Alicante)
+                                </p>
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-10">
+                                <div className="rounded-[4rem] overflow-hidden h-[600px] shadow-2xl group">
+                                    <img
+                                        src="FOTOS/villa foto 1.png"
+                                        alt="Villa Exterior"
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    />
+                                </div>
+
+                                <div className="rounded-[4rem] overflow-hidden h-[600px] shadow-2xl group">
+                                    <img
+                                        src="FOTOS/villa foto 2.png"
+                                        alt="Villa Interior"
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* LAS HABITACIONES */}
+                    <section className="bg-[#efe7de] py-32">
+                        <div className="max-w-7xl mx-auto px-6 text-center">
+                            <p className="uppercase tracking-[0.4em] text-xs mb-6 text-[#8c7a6b] font-semibold">
+                                El descanso
+                            </p>
+                            <h2 className="text-5xl md:text-6xl font-serif italic mb-20 text-[#433429]">
+                                Habitaciones diseñadas para la paz.
+                            </h2>
+
+                            <div className="grid md:grid-cols-2 gap-16">
+                                <div className="group">
+                                    <div className="rounded-[3rem] overflow-hidden h-[450px] mb-8 shadow-xl ring-1 ring-black/5">
+                                        <img src="FOTOS/habitación camas dobles.png" alt="Habitación matrimonio" className="w-full h-full object-cover" />
+                                    </div>
+                                    <h3 className="text-3xl font-serif mb-4 italic text-[#433429]">Habitaciones de matrimonio</h3>
+                                    <p className="text-[#5c5148] leading-relaxed max-w-md mx-auto font-light">
+                                        Espacios amplios y tranquilos. Algunas cuentan con cama de matrimonio, compartiendo la esencia del retiro.
+                                    </p>
+                                </div>
+
+                                <div className="group">
+                                    <div className="rounded-[3rem] overflow-hidden h-[450px] mb-8 shadow-xl ring-1 ring-black/5">
+                                        <img src="FOTOS/habitación camas individuales.png" alt="Habitación individual" className="w-full h-full object-cover" />
+                                    </div>
+                                    <h3 className="text-3xl font-serif mb-4 italic text-[#433429]">Habitaciones individuales</h3>
+                                    <p className="text-[#5c5148] leading-relaxed max-w-md mx-auto font-light">
+                                        Configuradas con camas individuales, ideales para conectar con tus compañeras de cuarto.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="mt-24 inline-block bg-[#433429]/5 border border-[#433429]/10 px-12 py-6 rounded-full">
+                                <p className="text-[#433429] italic font-serif text-xl">
+                                    * Todas las habitaciones son compartidas para fomentar la comunidad.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* PARA QUIEN - SYMMETRICAL GRID */}
+                    <section className="bg-[#433429] py-40 px-6 relative overflow-hidden flex flex-col items-center">
+                        <div className="absolute inset-0 opacity-20">
+                            <img src="FOTOS/General ethereal - talleres.png" alt="Bg" className="w-full h-full object-cover blur-sm" />
+                        </div>
+
+                        <p className="uppercase tracking-[0.4em] text-xs mb-20 text-[#C6B497] font-semibold relative z-10">
+                            Esto es para ti si...
+                        </p>
+
+                        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 relative z-20">
+                            {[
+                                'Sientes que necesitas bajar el ritmo.',
+                                'Te cuesta encontrar tiempo para ti.',
+                                'Echas de menos sentir la chispa de la inspiración.',
+                                'Quieres conectar con personas afines.',
+                                'Necesitas desconectar del ruido.',
+                                'Deseas volver a sentirte presente.',
+                            ].map((text, index) => (
+                                <div 
+                                    key={index} 
+                                    className="group bg-white/5 backdrop-blur-sm border border-white/10 p-10 rounded-[3rem] text-center hover:bg-[#FDFBF9] transition-all duration-700 cursor-default shadow-xl"
+                                >
+                                    <p className="text-white group-hover:text-[#433429] font-serif italic text-2xl leading-relaxed transition-colors duration-500">
+                                        {text}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* GLOWING AMBIENCE */}
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] halo-gradient opacity-30 pointer-events-none" />
+                    </section>
+
+                    {/* CTA / CLOSURE */}
+                    <section className="bg-[#FDFBF9] py-40 px-6 text-center relative overflow-hidden">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-[#C6B497] to-transparent" />
+                        
+                        <div className="relative z-10 max-w-5xl mx-auto">
+                            <img src="logo ethereal.png" alt="Logo" className="w-24 mx-auto mb-12 opacity-30 invert" />
+                            
+                            <h2 className="text-6xl md:text-8xl font-serif leading-tight mb-12 italic">
+                                Permítete el lujo
+                                <br />
+                                de no hacer nada.
+                            </h2>
+
+                            <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16">
+                                <div className="text-left md:text-right border-b md:border-b-0 md:border-r border-[#C6B497] pb-8 md:pb-0 md:pr-12">
+                                    <p className="text-sm uppercase tracking-widest text-[#8c7a6b] mb-2 font-bold">Cuándo</p>
+                                    <p className="text-2xl font-serif italic text-[#433429]">18 · 20 Septiembre 2026</p>
+                                </div>
+                                <div className="text-left md:pl-4">
+                                    <p className="text-sm uppercase tracking-widest text-[#8c7a6b] mb-2 font-bold">Inversión</p>
+                                    <div className="flex items-baseline gap-4">
+                                        <span className="text-4xl font-serif text-[#433429]">397€</span>
+                                        <span className="text-lg text-[#8c7a6b] line-through">450€</span>
+                                    </div>
+                                    <p className="text-xs uppercase tracking-widest text-[#8c7a6b] mt-2 font-bold">Incluye desayunos y cenas</p>
+                                </div>
+                            </div>
+
+                            <a
+                                href="https://w.app/ethereal"
+                                target="_blank"
+                                className="bg-[#433429] text-[#FDFBF9] px-16 py-7 rounded-full text-xs tracking-[0.4em] uppercase font-bold hover:bg-[#FDFBF9] hover:text-[#433429] transition-all duration-500 shadow-2xl inline-block"
+                            >
+                                Asegurar mi plaza
+                            </a>
+                            
+                            <p className="mt-12 text-[#8c7a6b] text-sm tracking-widest uppercase">
+                                Plazas limitadas · Benissa, Alicante
+                            </p>
+                        </div>
+                    </section>
+
+                    {/* FOOTER */}
+                    <footer className="bg-[#433429] py-12 px-6 text-center">
+                        <p className="text-[#FDFBF9]/40 text-xs tracking-[0.2em] uppercase">
+                            © 2026 Ethereal Retreat · Todos los derechos reservados
+                        </p>
+                    </footer>
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<EtherealRetreatPage />);
+    </script>
+</body>
+</html>
